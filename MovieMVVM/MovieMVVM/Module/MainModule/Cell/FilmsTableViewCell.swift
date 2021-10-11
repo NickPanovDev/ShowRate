@@ -26,12 +26,12 @@ final class FilmsTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(cell: Films?, for indexPath: IndexPath) {
-        guard let title = cell?.results[indexPath.row].title,
-              let posterPath = cell?.results[indexPath.row].posterPath,
-              let overview = cell?.results[indexPath.row].overview,
-              let releaseDate = cell?.results[indexPath.row].releaseDate,
-              let voteAverage = cell?.results[indexPath.row].voteAverage else { return }
+    func configureCell(cell: [ParametrFilms]?, for indexPath: IndexPath) {
+        guard let title = cell?[indexPath.row].title,
+              let posterPath = cell?[indexPath.row].posterPath,
+              let overview = cell?[indexPath.row].overview,
+              let releaseDate = cell?[indexPath.row].releaseDate,
+              let voteAverage = cell?[indexPath.row].voteAverage else { return }
 
         titleLable.text = title
         descriptionLabel.text = overview
