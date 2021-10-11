@@ -1,14 +1,10 @@
-//
-//  MovieMVVMUITests.swift
-//  MovieMVVMUITests
-//
-//  Created by Николай Панов on 11.10.2021.
-//
+// MovieMVVMUITests.swift
+// Copyright © RoadMap. All rights reserved.
 
 import XCTest
 
+/// MovieMVVMUITests
 class MovieMVVMUITests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 

@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DD27143BD300E29EBB /* AppDelegate.swift */; };
 		BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */; };
-		BA85C4E227143BD300E29EBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4E127143BD300E29EBB /* ViewController.swift */; };
 		BA85C4E527143BD300E29EBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85C4E327143BD300E29EBB /* Main.storyboard */; };
 		BA85C4E727143BD500E29EBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA85C4E627143BD500E29EBB /* Assets.xcassets */; };
 		BA85C4EA27143BD500E29EBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85C4E827143BD500E29EBB /* LaunchScreen.storyboard */; };
 		BA85C4F527143BD600E29EBB /* MovieMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4F427143BD600E29EBB /* MovieMVVMTests.swift */; };
 		BA85C50027143BD600E29EBB /* MovieMVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4FF27143BD600E29EBB /* MovieMVVMUITests.swift */; };
+		BA85C51427143D8D00E29EBB /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C51327143D8D00E29EBB /* Film.swift */; };
+		BA85C51D27143DD800E29EBB /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C51C27143DD800E29EBB /* MainTableViewController.swift */; };
+		BA85C52527143E0100E29EBB /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C52427143E0100E29EBB /* DetailTableViewController.swift */; };
+		BA85C53427143E6000E29EBB /* FilmsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C53327143E6000E29EBB /* FilmsTableViewCell.swift */; };
+		BA85C53D27143E9400E29EBB /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C53C27143E9400E29EBB /* DetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,6 @@
 		BA85C4DA27143BD300E29EBB /* MovieMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA85C4DD27143BD300E29EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA85C4E127143BD300E29EBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA85C4E427143BD300E29EBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA85C4E627143BD500E29EBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA85C4E927143BD500E29EBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		BA85C4FB27143BD600E29EBB /* MovieMVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieMVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA85C4FF27143BD600E29EBB /* MovieMVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMVVMUITests.swift; sourceTree = "<group>"; };
 		BA85C50127143BD600E29EBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA85C51327143D8D00E29EBB /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		BA85C51C27143DD800E29EBB /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		BA85C52427143E0100E29EBB /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		BA85C53327143E6000E29EBB /* FilmsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsTableViewCell.swift; sourceTree = "<group>"; };
+		BA85C53C27143E9400E29EBB /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +109,13 @@
 			children = (
 				BA85C4DD27143BD300E29EBB /* AppDelegate.swift */,
 				BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */,
-				BA85C4E127143BD300E29EBB /* ViewController.swift */,
 				BA85C4E327143BD300E29EBB /* Main.storyboard */,
 				BA85C4E627143BD500E29EBB /* Assets.xcassets */,
 				BA85C4E827143BD500E29EBB /* LaunchScreen.storyboard */,
 				BA85C4EB27143BD500E29EBB /* Info.plist */,
+				BA85C51B27143D9100E29EBB /* Model */,
+				BA85C52927143E2400E29EBB /* MainModule */,
+				BA85C52D27143E3100E29EBB /* DetailModule */,
 			);
 			path = MovieMVVM;
 			sourceTree = "<group>";
@@ -128,6 +138,64 @@
 			path = MovieMVVMUITests;
 			sourceTree = "<group>";
 		};
+		BA85C51B27143D9100E29EBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C51327143D8D00E29EBB /* Film.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA85C52927143E2400E29EBB /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C52E27143E3E00E29EBB /* View */,
+				BA85C53827143E7C00E29EBB /* Cell */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		BA85C52D27143E3100E29EBB /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C52F27143E4400E29EBB /* View */,
+				BA85C54127143EAE00E29EBB /* Cell */,
+			);
+			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		BA85C52E27143E3E00E29EBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C51C27143DD800E29EBB /* MainTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA85C52F27143E4400E29EBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C52427143E0100E29EBB /* DetailTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA85C53827143E7C00E29EBB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C53327143E6000E29EBB /* FilmsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BA85C54127143EAE00E29EBB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C53C27143E9400E29EBB /* DetailTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +206,8 @@
 				BA85C4D627143BD300E29EBB /* Sources */,
 				BA85C4D727143BD300E29EBB /* Frameworks */,
 				BA85C4D827143BD300E29EBB /* Resources */,
+				BA85C51027143D2100E29EBB /* SwiftFormat */,
+				BA85C51127143D4700E29EBB /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -253,14 +323,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BA85C51027143D2100E29EBB /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+		BA85C51127143D4700E29EBB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BA85C4D627143BD300E29EBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA85C4E227143BD300E29EBB /* ViewController.swift in Sources */,
+				BA85C52527143E0100E29EBB /* DetailTableViewController.swift in Sources */,
+				BA85C53D27143E9400E29EBB /* DetailTableViewCell.swift in Sources */,
+				BA85C51427143D8D00E29EBB /* Film.swift in Sources */,
 				BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */,
+				BA85C51D27143DD800E29EBB /* MainTableViewController.swift in Sources */,
 				BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */,
+				BA85C53427143E6000E29EBB /* FilmsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
