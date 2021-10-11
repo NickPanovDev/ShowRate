@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        let mainVC = MainViewController()
+        let mainVC = MainTableViewController()
 
         let navController = UINavigationController(rootViewController: mainVC)
         mainVC.title = "Films"

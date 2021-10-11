@@ -2,11 +2,13 @@
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
-/// Ячейка таблицы MainViewController
+/// Ячейка таблицы MainTableViewController
 final class FilmsTableViewCell: UITableViewCell {
+    // MARK: - Static Properties
+
     static let identifier = "FilmsCell"
 
-    // MARK: - private properties
+    // MARK: - Private Properties
 
     private let posterImageView = UIImageView()
     private let titleLable = UILabel()
@@ -22,7 +24,7 @@ final class FilmsTableViewCell: UITableViewCell {
         setupView()
     }
 
-    // MARK: - Public methods
+    // MARK: - Public Methods
 
     func configureCell(cell: Films?, for indexPath: IndexPath) {
         guard let title = cell?.results[indexPath.row].title,
@@ -47,7 +49,7 @@ final class FilmsTableViewCell: UITableViewCell {
         }
     }
 
-    // MARK: - private methods
+    // MARK: - Private Methods
 
     private func setupView() {
         createTitleLable()

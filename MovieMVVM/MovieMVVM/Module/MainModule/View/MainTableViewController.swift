@@ -3,19 +3,19 @@
 
 import UIKit
 /// Таблица основного экрана с фильмами
-final class MainViewController: UITableViewController {
-    // MARK: - private properties
+final class MainTableViewController: UITableViewController {
+    // MARK: - Private Properties
 
     private var movies: Films?
 
-    // MARK: - UITableViewController(MainViewController)
+    // MARK: - UITableViewController(MainTableViewController)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 
-    // MARK: - private methods
+    // MARK: - Private Methods
 
     private func setupView() {
         createRegister()
