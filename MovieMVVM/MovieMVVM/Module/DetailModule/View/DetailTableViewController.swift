@@ -4,7 +4,6 @@
 import UIKit
 /// Таблица детального обзора фильма
 final class DetailTableViewController: UITableViewController {
-
     // MARK: - Private Properties
 
     private var detailViewModel: DetailViewModelProtocol?
