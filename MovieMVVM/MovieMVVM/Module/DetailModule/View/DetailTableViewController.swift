@@ -19,7 +19,7 @@ final class DetailTableViewController: UITableViewController {
         setupView()
     }
 
-    // MARK: - private methods
+    // MARK: - Private Methods
 
     private func setupView() {
         createRegister()

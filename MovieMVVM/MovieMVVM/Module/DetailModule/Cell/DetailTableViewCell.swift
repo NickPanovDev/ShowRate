@@ -4,6 +4,8 @@
 import UIKit
 /// Ячейка таблицы DetailTableViewController
 final class DetailTableViewCell: UITableViewCell {
+    // MARK: - Static Properties
+
     static let identifier = "DetailCell"
 
     // MARK: - Private Properties
@@ -20,7 +22,7 @@ final class DetailTableViewCell: UITableViewCell {
         setupView()
     }
 
-    // MARK: - Public methods
+    // MARK: - Public Methods
 
     func configureCell(cell: ParametrFilms?, for indexPath: IndexPath) {
         guard let title = cell?.title,

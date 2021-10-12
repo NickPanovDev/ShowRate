@@ -2,11 +2,13 @@
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
-/// Ячейка таблицы MainViewController
+/// Ячейка таблицы MainTableViewController
 final class FilmsTableViewCell: UITableViewCell {
+    // MARK: - Static Properties
+
     static let identifier = "FilmsCell"
 
-    // MARK: - private properties
+    // MARK: - Private Properties
 
     private let posterImageView = UIImageView()
     private let titleLable = UILabel()
@@ -22,14 +24,14 @@ final class FilmsTableViewCell: UITableViewCell {
         setupView()
     }
 
-    // MARK: - Public methods
+    // MARK: - Public Methods
 
-    func configureCell(cell: Films?, for indexPath: IndexPath) {
-        guard let title = cell?.results[indexPath.row].title,
-              let posterPath = cell?.results[indexPath.row].posterPath,
-              let overview = cell?.results[indexPath.row].overview,
-              let releaseDate = cell?.results[indexPath.row].releaseDate,
-              let voteAverage = cell?.results[indexPath.row].voteAverage else { return }
+    func configureCell(cell: [ParametrFilms]?, for indexPath: IndexPath) {
+        guard let title = cell?[indexPath.row].title,
+              let posterPath = cell?[indexPath.row].posterPath,
+              let overview = cell?[indexPath.row].overview,
+              let releaseDate = cell?[indexPath.row].releaseDate,
+              let voteAverage = cell?[indexPath.row].voteAverage else { return }
 
         titleLable.text = title
         descriptionLabel.text = overview
@@ -47,7 +49,7 @@ final class FilmsTableViewCell: UITableViewCell {
         }
     }
 
-    // MARK: - private methods
+    // MARK: - Private Methods
 
     private func setupView() {
         createTitleLable()

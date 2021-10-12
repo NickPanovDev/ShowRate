@@ -3,52 +3,51 @@
 
 import UIKit
 /// Таблица основного экрана с фильмами
-final class MainViewController: UITableViewController {
-    // MARK: - private properties
+final class MainTableViewController: UITableViewController {
+    // MARK: - Private Properties
 
-    private var movies: Films?
+    private var movieViewModel: MovieViewModelProtocol?
 
-    // MARK: - UITableViewController(MainViewController)
+    // MARK: - Init
+
+    init(view: MovieViewModelProtocol) {
+        movieViewModel = view
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - UITableViewController(MainTableViewController)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 
-    // MARK: - private methods
+    // MARK: - Private Methods
 
     private func setupView() {
+        title = "Топ рейтинг"
+        movieViewModel?.getTopRated()
         createRegister()
-        fetchData()
+        reloadData()
     }
 
     private func createRegister() {
         tableView.register(FilmsTableViewCell.self, forCellReuseIdentifier: FilmsTableViewCell.identifier)
     }
 
-    private func fetchData() {
-        let jsonUrlString =
-            "https://api.themoviedb.org/3/movie/top_rated?api_key=ab022f0a8f966780f47c834ccb3ac843&language=ru-Ru&page=1"
-
-        guard let url = URL(string: jsonUrlString) else { return }
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else { return }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                self.movies = try decoder.decode(Films.self, from: data)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print("error json", error)
-            }
-        }.resume()
+    private func reloadData() {
+        movieViewModel?.reloadData = { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = movies?.results.count else { return Int() }
+        guard let section = movieViewModel?.films?.count else { return Int() }
         return section
     }
 
@@ -58,7 +57,7 @@ final class MainViewController: UITableViewController {
             for: indexPath
         ) as? FilmsTableViewCell else { return UITableViewCell() }
 
-        cell.configureCell(cell: movies, for: indexPath)
+        cell.configureCell(cell: movieViewModel?.films, for: indexPath)
         return cell
     }
 
@@ -68,7 +67,7 @@ final class MainViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailTableViewController()
-        guard let detail = movies?.results[indexPath.row].id else { return }
+        guard let detail = movieViewModel?.films?[indexPath.row].id else { return }
         detailVC.id = detail
         navigationController?.pushViewController(detailVC, animated: true)
     }
