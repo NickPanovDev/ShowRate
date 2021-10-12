@@ -17,27 +17,31 @@ final class MovieViewModel: MovieViewModelProtocol {
     var films: [ParametrFilms]?
     var reloadData: (() -> ())?
 
+    // MARK: - Private Properties
+
+    private var movieAPIService: MovieAPIServiceProtocol
+
+    // MARK: - Initializers
+
+    init(movieAPIService: MovieAPIServiceProtocol) {
+        self.movieAPIService = movieAPIService
+        getTopRated()
+    }
+
     // MARK: - Public Methods
 
     func getTopRated() {
-        let jsonURL =
-            "https://api.themoviedb.org/3/movie/top_rated?api_key=ab022f0a8f966780f47c834ccb3ac843&language=ru-Ru&page=1"
-
-        guard let url = URL(string: jsonURL) else { return }
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else { return }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let move = try decoder.decode(Films.self, from: data)
-                self.films = move.results
+        movieAPIService.getTopRated { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(result):
+                self.films = result
                 DispatchQueue.main.async {
                     self.reloadData?()
                 }
-            } catch {
+            case let .failure(error):
                 print(error.localizedDescription)
             }
-        }.resume()
+        }
     }
 }

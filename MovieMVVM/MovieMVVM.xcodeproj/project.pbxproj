@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BA0618F62714DC5400B6DCFE /* ParametrFilms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0618F52714DC5400B6DCFE /* ParametrFilms.swift */; };
 		BA0618FB2714DEDD00B6DCFE /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0618FA2714DEDD00B6DCFE /* MovieViewModel.swift */; };
+		BA06190A2715C2A400B6DCFE /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619092715C2A400B6DCFE /* DetailModel.swift */; };
+		BA0619192715C31300B6DCFE /* MovieAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619182715C31300B6DCFE /* MovieAPIService.swift */; };
 		BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DD27143BD300E29EBB /* AppDelegate.swift */; };
 		BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */; };
 		BA85C4E527143BD300E29EBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85C4E327143BD300E29EBB /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		BA0618F52714DC5400B6DCFE /* ParametrFilms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametrFilms.swift; sourceTree = "<group>"; };
 		BA0618FA2714DEDD00B6DCFE /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		BA0619092715C2A400B6DCFE /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		BA0619182715C31300B6DCFE /* MovieAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIService.swift; sourceTree = "<group>"; };
 		BA85C4DA27143BD300E29EBB /* MovieMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA85C4DD27143BD300E29EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BA0619112715C2A800B6DCFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA0619092715C2A400B6DCFE /* DetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA06191D2715C31E00B6DCFE /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				BA0619182715C31300B6DCFE /* MovieAPIService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
 		BA85C4D127143BD300E29EBB = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				BA85C4EB27143BD500E29EBB /* Info.plist */,
-				BA85C51B27143D9100E29EBB /* Model */,
+				BA06191D2715C31E00B6DCFE /* APIService */,
 				BA85C5492714411400E29EBB /* Module */,
 				BA85C5532714415900E29EBB /* Settings */,
 				BA85C5482714410000E29EBB /* Resources */,
@@ -161,6 +181,7 @@
 				BA85C52E27143E3E00E29EBB /* View */,
 				BA85C53827143E7C00E29EBB /* Cell */,
 				BA0618FF2714DEE100B6DCFE /* ViewModel */,
+				BA85C51B27143D9100E29EBB /* Model */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -170,6 +191,7 @@
 			children = (
 				BA85C52F27143E4400E29EBB /* View */,
 				BA85C54127143EAE00E29EBB /* Cell */,
+				BA0619112715C2A800B6DCFE /* Model */,
 			);
 			path = DetailModule;
 			sourceTree = "<group>";
@@ -411,6 +433,8 @@
 				BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */,
 				BA85C51D27143DD800E29EBB /* MainTableViewController.swift in Sources */,
 				BA0618FB2714DEDD00B6DCFE /* MovieViewModel.swift in Sources */,
+				BA0619192715C31300B6DCFE /* MovieAPIService.swift in Sources */,
+				BA06190A2715C2A400B6DCFE /* DetailModel.swift in Sources */,
 				BA0618F62714DC5400B6DCFE /* ParametrFilms.swift in Sources */,
 				BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */,
 				BA85C53427143E6000E29EBB /* FilmsTableViewCell.swift in Sources */,
