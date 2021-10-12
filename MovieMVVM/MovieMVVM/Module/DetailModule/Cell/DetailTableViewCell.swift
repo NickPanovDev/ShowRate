@@ -24,7 +24,7 @@ final class DetailTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(cell: ParametrFilms?, for indexPath: IndexPath) {
+    func configureCell(cell: DetailModel?, for indexPath: IndexPath) {
         guard let title = cell?.title,
               let posterPath = cell?.posterPath,
               let overview = cell?.overview else { return }

@@ -4,7 +4,7 @@
 import Foundation
 
 /// MovieViewModelProtocol
-protocol MovieViewModelProtocol {
+protocol MovieViewModelProtocol: AnyObject {
     var films: [ParametrFilms]? { get set }
     var reloadData: (() -> ())? { get set }
     func getTopRated()
