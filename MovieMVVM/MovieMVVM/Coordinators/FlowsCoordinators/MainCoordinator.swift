@@ -38,9 +38,13 @@ final class MainCoordinator: BaseCoordinator {
             guard let self = self else { return }
             self.showDetail(movieID: movieID)
         }
-
-        let navController = UINavigationController(rootViewController: movieVC)
-        setAsRoot(navController)
-        navigationController = navController
+        if navigationController == nil {
+            let navController = UINavigationController(rootViewController: movieVC)
+            navigationController = navController
+            setAsRoot(navController)
+        } else if let navigationController = navigationController {
+            navigationController.pushViewController(movieVC, animated: true)
+            setAsRoot(navigationController)
+        }
     }
 }

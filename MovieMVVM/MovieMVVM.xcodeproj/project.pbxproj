@@ -18,6 +18,7 @@
 		BA06194D27172D4700B6DCFE /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06194C27172D4700B6DCFE /* ApplicationCoordinator.swift */; };
 		BA06195527172D5C00B6DCFE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06195427172D5C00B6DCFE /* MainCoordinator.swift */; };
 		BA06196A2717743C00B6DCFE /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619692717743C00B6DCFE /* Typealiases.swift */; };
+		BA0619782717825D00B6DCFE /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619772717825D00B6DCFE /* CoordinatorTests.swift */; };
 		BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DD27143BD300E29EBB /* AppDelegate.swift */; };
 		BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */; };
 		BA85C4E527143BD300E29EBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85C4E327143BD300E29EBB /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		BA06194C27172D4700B6DCFE /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		BA06195427172D5C00B6DCFE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BA0619692717743C00B6DCFE /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		BA0619772717825D00B6DCFE /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		BA85C4DA27143BD300E29EBB /* MovieMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA85C4DD27143BD300E29EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,14 @@
 			path = FlowsCoordinators;
 			sourceTree = "<group>";
 		};
+		BA06197F2717826300B6DCFE /* CoordinatorTest */ = {
+			isa = PBXGroup;
+			children = (
+				BA0619772717825D00B6DCFE /* CoordinatorTests.swift */,
+			);
+			path = CoordinatorTest;
+			sourceTree = "<group>";
+		};
 		BA85C4D127143BD300E29EBB = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 		BA85C4F327143BD600E29EBB /* MovieMVVMTests */ = {
 			isa = PBXGroup;
 			children = (
+				BA06197F2717826300B6DCFE /* CoordinatorTest */,
 				BA85C4F427143BD600E29EBB /* MovieMVVMTests.swift */,
 				BA85C4F627143BD600E29EBB /* Info.plist */,
 			);
@@ -505,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA0619782717825D00B6DCFE /* CoordinatorTests.swift in Sources */,
 				BA85C4F527143BD600E29EBB /* MovieMVVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

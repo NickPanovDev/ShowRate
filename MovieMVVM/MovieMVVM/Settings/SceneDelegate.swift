@@ -21,19 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navController = UINavigationController()
         coordinator = ApplicationCoordinator(navigationController: navController, assemblyBuilder: AssemblyModule())
         coordinator?.start()
-//        let movieAPIService = MovieAPIService()
-//        let movieViewModel = MovieViewModel(movieAPIService: movieAPIService)
-//        let mainVC = MainTableViewController(view: movieViewModel)
-//        let navController = UINavigationController(rootViewController: mainVC)
-//        window?.rootViewController = navController
-//        window?.makeKeyAndVisible()
-
-//        let navController = UINavigationController()
-//        let assemblyBuilder = AssemblyModule()
-//        coordinator = ApplicationCoordinator()
-//        coordinator?.start()
-//        window?.rootViewController = navController
-//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}
