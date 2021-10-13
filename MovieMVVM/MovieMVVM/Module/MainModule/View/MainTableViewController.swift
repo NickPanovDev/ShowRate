@@ -4,21 +4,11 @@
 import UIKit
 /// Таблица основного экрана с фильмами
 final class MainTableViewController: UITableViewController {
-    // MARK: - Private Properties
+    // MARK: - Public Properties
 
-    private var movieViewModel: MovieViewModelProtocol?
-
-    // MARK: - Initializers
-
-    init(view: MovieViewModelProtocol) {
-        movieViewModel = view
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var movieViewModel: MovieViewModelProtocol?
+    var coordinator: MainCoordinator?
+    var showDetails: IntHandler?
 
     // MARK: - UITableViewController(MainTableViewController)
 
@@ -67,9 +57,6 @@ final class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailID = movieViewModel?.films?[indexPath.row].id else { return }
-        let movieAPIService = MovieAPIService()
-        let detailViewModel = DetailViewModel(movieAPIService: movieAPIService, id: detailID)
-        let detailVC = DetailTableViewController(view: detailViewModel)
-        navigationController?.pushViewController(detailVC, animated: true)
+        showDetails?(detailID)
     }
 }
