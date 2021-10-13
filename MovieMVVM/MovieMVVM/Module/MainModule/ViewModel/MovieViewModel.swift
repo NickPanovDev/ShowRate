@@ -31,13 +31,13 @@ final class MovieViewModel: MovieViewModelProtocol {
     // MARK: - Public Methods
 
     func getTopRated() {
-        movieAPIService.getTopRated { [weak self] result in
+        movieAPIService.getRated { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(result):
                 self.films = result
                 DispatchQueue.main.async {
-                    self.reloadData?()
+                      self.reloadData?()
                 }
             case let .failure(error):
                 print(error.localizedDescription)

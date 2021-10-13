@@ -5,7 +5,7 @@ import Foundation
 
 /// MovieAPIServiceProtocol
 protocol MovieAPIServiceProtocol {
-    func getTopRated(complition: @escaping (Swift.Result<[ParametrFilms], Error>) -> Void)
+    func getRated(complition: @escaping (Swift.Result<[ParametrFilms], Error>) -> Void)
     func getDetailRated(id: Int?, complition: @escaping (Swift.Result<DetailModel, Error>) -> Void)
 }
 
@@ -13,7 +13,7 @@ protocol MovieAPIServiceProtocol {
 final class MovieAPIService: MovieAPIServiceProtocol {
     // MARK: - Public Methods
 
-    func getTopRated(complition: @escaping (Swift.Result<[ParametrFilms], Error>) -> Void) {
+    func getRated(complition: @escaping (Swift.Result<[ParametrFilms], Error>) -> Void) {
         let jsonURL =
             "https://api.themoviedb.org/3/movie/top_rated?api_key=ab022f0a8f966780f47c834ccb3ac843&language=ru-Ru&page=1"
 
