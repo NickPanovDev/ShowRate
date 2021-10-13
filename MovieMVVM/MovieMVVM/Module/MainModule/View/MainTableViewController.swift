@@ -8,7 +8,7 @@ final class MainTableViewController: UITableViewController {
 
     private var movieViewModel: MovieViewModelProtocol?
 
-    // MARK: - Init
+    // MARK: - Initializers
 
     init(view: MovieViewModelProtocol) {
         movieViewModel = view
@@ -31,7 +31,6 @@ final class MainTableViewController: UITableViewController {
 
     private func setupView() {
         title = "Топ рейтинг"
-        movieViewModel?.getTopRated()
         createRegister()
         reloadData()
     }
@@ -42,7 +41,8 @@ final class MainTableViewController: UITableViewController {
 
     private func reloadData() {
         movieViewModel?.reloadData = { [weak self] in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            self.tableView.reloadData()
         }
     }
 
@@ -66,9 +66,10 @@ final class MainTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = DetailTableViewController()
-        guard let detail = movieViewModel?.films?[indexPath.row].id else { return }
-        detailVC.id = detail
+        guard let detailID = movieViewModel?.films?[indexPath.row].id else { return }
+        let movieAPIService = MovieAPIService()
+        let detailViewModel = DetailViewModel(movieAPIService: movieAPIService, id: detailID)
+        let detailVC = DetailTableViewController(view: detailViewModel)
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

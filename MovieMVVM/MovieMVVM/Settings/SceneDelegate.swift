@@ -12,7 +12,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        let movieViewModel = MovieViewModel()
+        let movieAPIService = MovieAPIService()
+        let movieViewModel = MovieViewModel(movieAPIService: movieAPIService)
         let mainVC = MainTableViewController(view: movieViewModel)
         let navController = UINavigationController(rootViewController: mainVC)
         window?.rootViewController = navController

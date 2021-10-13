@@ -16,6 +16,7 @@ final class FilmsTableViewCell: UITableViewCell {
     private let releaseDateLabel = UILabel()
     private let gradeFilms = UILabel()
     private let baseView = UIView()
+    private let imageAPIService = ImageAPIService()
 
     // MARK: - UITableViewCell(FilmsTableViewCell)
 
@@ -38,13 +39,13 @@ final class FilmsTableViewCell: UITableViewCell {
         releaseDateLabel.text = releaseDate
         gradeFilms.text = String(voteAverage)
 
-        DispatchQueue.global().async {
-            let constImage = "https://image.tmdb.org/t/p/w500/"
-            guard let urlImage = URL(string: "\(constImage)\(posterPath)"),
-                  let imageData = try? Data(contentsOf: urlImage) else { return }
-
-            DispatchQueue.main.async {
-                self.posterImageView.image = UIImage(data: imageData)
+        imageAPIService.getPhoto(posterPath: posterPath) { [weak self] poster in
+            guard let self = self else { return }
+            switch poster {
+            case let .success(image):
+                self.posterImageView.image = image
+            case let .failure(error):
+                print(error.localizedDescription)
             }
         }
     }

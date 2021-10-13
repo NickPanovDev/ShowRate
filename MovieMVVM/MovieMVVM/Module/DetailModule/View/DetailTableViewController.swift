@@ -4,13 +4,21 @@
 import UIKit
 /// Таблица детального обзора фильма
 final class DetailTableViewController: UITableViewController {
-    // MARK: - Public Properties
-
-    var id: Int?
-
     // MARK: - Private Properties
 
-    private var detailMovies: ParametrFilms?
+    private var detailViewModel: DetailViewModelProtocol?
+
+    // MARK: - Initializers
+
+    init(view: DetailViewModelProtocol) {
+        detailViewModel = view
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - UITableViewController(DetailTableViewController)
 
@@ -23,33 +31,18 @@ final class DetailTableViewController: UITableViewController {
 
     private func setupView() {
         createRegister()
-        fetchData()
+        reloadData()
     }
 
     private func createRegister() {
         tableView.register(DetailTableViewCell.self, forCellReuseIdentifier: DetailTableViewCell.identifier)
     }
 
-    private func fetchData() {
-        guard let idAnwrap = id else { return }
-        let jsonUrlString =
-            "https://api.themoviedb.org/3/movie/\(idAnwrap)?api_key=ab022f0a8f966780f47c834ccb3ac843&language=ru-RU"
-
-        guard let url = URL(string: jsonUrlString) else { return }
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else { return }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                self.detailMovies = try decoder.decode(ParametrFilms.self, from: data)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print("error json", error)
-            }
-        }.resume()
+    private func reloadData() {
+        detailViewModel?.reloadData = { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,9 +54,8 @@ final class DetailTableViewController: UITableViewController {
             withIdentifier: DetailTableViewCell.identifier,
             for: indexPath
         ) as? DetailTableViewCell else { return UITableViewCell() }
-
-        title = detailMovies?.title
-        cell.configureCell(cell: detailMovies, for: indexPath)
+        title = detailViewModel?.films?.title
+        cell.configureCell(cell: detailViewModel?.films, for: indexPath)
         return cell
     }
 

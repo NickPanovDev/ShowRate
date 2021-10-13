@@ -14,6 +14,7 @@ final class DetailTableViewCell: UITableViewCell {
     private let titleLable = UILabel()
     private let descriptionLabel = UILabel()
     private let baseView = UIView()
+    private let imageAPIService = ImageAPIService()
 
     // MARK: - UITableViewCell(DetailTableViewCell)
 
@@ -24,7 +25,7 @@ final class DetailTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(cell: ParametrFilms?, for indexPath: IndexPath) {
+    func configureCell(cell: DetailModel?, for indexPath: IndexPath) {
         guard let title = cell?.title,
               let posterPath = cell?.posterPath,
               let overview = cell?.overview else { return }
@@ -32,13 +33,13 @@ final class DetailTableViewCell: UITableViewCell {
         titleLable.text = title
         descriptionLabel.text = overview
 
-        DispatchQueue.global().async {
-            let constImage = "https://image.tmdb.org/t/p/w500/"
-            guard let urlImage = URL(string: "\(constImage)\(posterPath)"),
-                  let imageData = try? Data(contentsOf: urlImage) else { return }
-
-            DispatchQueue.main.async {
-                self.postImageView.image = UIImage(data: imageData)
+        imageAPIService.getPhoto(posterPath: posterPath) { [weak self] poster in
+            guard let self = self else { return }
+            switch poster {
+            case let .success(image):
+                self.postImageView.image = image
+            case let .failure(error):
+                print(error.localizedDescription)
             }
         }
     }
