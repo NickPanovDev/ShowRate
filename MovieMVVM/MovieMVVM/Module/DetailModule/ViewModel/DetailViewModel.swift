@@ -17,7 +17,7 @@ final class DetailViewModel: DetailViewModelProtocol {
 
     var id: Int?
     var films: DetailModel?
-    var reloadData: (() -> ())?
+    var reloadData: VoidHandler?
 
     // MARK: - Private Properties
 

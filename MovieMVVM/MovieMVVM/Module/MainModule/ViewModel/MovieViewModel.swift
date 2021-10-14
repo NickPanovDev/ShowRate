@@ -15,7 +15,7 @@ final class MovieViewModel: MovieViewModelProtocol {
     // MARK: - Public Properties
 
     var films: [ParametrFilms]?
-    var reloadData: (() -> ())?
+    var reloadData: VoidHandler?
 
     // MARK: - Private Properties
 
@@ -37,7 +37,7 @@ final class MovieViewModel: MovieViewModelProtocol {
             case let .success(result):
                 self.films = result
                 DispatchQueue.main.async {
-                      self.reloadData?()
+                    self.reloadData?()
                 }
             case let .failure(error):
                 print(error.localizedDescription)

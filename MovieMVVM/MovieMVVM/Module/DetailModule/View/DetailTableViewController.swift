@@ -4,21 +4,9 @@
 import UIKit
 /// Таблица детального обзора фильма
 final class DetailTableViewController: UITableViewController {
-    // MARK: - Private Properties
+    // MARK: - Public Properties
 
-    private var detailViewModel: DetailViewModelProtocol?
-
-    // MARK: - Initializers
-
-    init(view: DetailViewModelProtocol) {
-        detailViewModel = view
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var detailViewModel: DetailViewModelProtocol?
 
     // MARK: - UITableViewController(DetailTableViewController)
 
