@@ -2,13 +2,14 @@
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
+import RealmSwift
 
 /// DetailModel
-struct DetailModel: Codable {
+final class DetailModel: Object, Decodable {
     /// Название фильма
-    var title: String
+    @objc dynamic var title: String
     /// Описание фильма
-    var overview: String
+    @objc dynamic var overview: String
     /// Постер фильма
-    var posterPath: String
+    @objc dynamic var posterPath: String
 }

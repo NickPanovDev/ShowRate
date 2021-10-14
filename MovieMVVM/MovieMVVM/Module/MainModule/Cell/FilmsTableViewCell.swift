@@ -1,6 +1,7 @@
 // FilmsTableViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 /// Ячейка таблицы MainTableViewController
 final class FilmsTableViewCell: UITableViewCell {
@@ -27,7 +28,7 @@ final class FilmsTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(cell: [ParametrFilms]?, for indexPath: IndexPath) {
+    func configureCell(cell: Results<ParametrFilms>?, for indexPath: IndexPath) {
         guard let title = cell?[indexPath.row].title,
               let posterPath = cell?[indexPath.row].posterPath,
               let overview = cell?[indexPath.row].overview,

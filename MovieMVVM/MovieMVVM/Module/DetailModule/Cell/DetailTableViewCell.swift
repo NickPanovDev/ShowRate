@@ -1,7 +1,9 @@
 // DetailTableViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
+
 /// Ячейка таблицы DetailTableViewController
 final class DetailTableViewCell: UITableViewCell {
     // MARK: - Static Properties
@@ -25,10 +27,10 @@ final class DetailTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(cell: DetailModel?, for indexPath: IndexPath) {
-        guard let title = cell?.title,
-              let posterPath = cell?.posterPath,
-              let overview = cell?.overview else { return }
+    func configureCell(cell: Results<DetailModel>?, for indexPath: IndexPath) {
+        guard let title = cell?[indexPath.row].title,
+              let posterPath = cell?[indexPath.row].posterPath,
+              let overview = cell?[indexPath.row].overview else { return } // [indexPath.row] добавил
 
         titleLable.text = title
         descriptionLabel.text = overview

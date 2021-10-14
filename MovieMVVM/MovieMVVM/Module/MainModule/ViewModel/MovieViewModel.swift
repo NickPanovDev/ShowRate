@@ -2,10 +2,11 @@
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
+import RealmSwift
 
 /// MovieViewModelProtocol
 protocol MovieViewModelProtocol: AnyObject {
-    var films: [ParametrFilms]? { get set }
+    var films: Results<ParametrFilms>? { get set }
     var reloadData: (() -> ())? { get set }
     func getTopRated()
 }
@@ -14,18 +15,21 @@ protocol MovieViewModelProtocol: AnyObject {
 final class MovieViewModel: MovieViewModelProtocol {
     // MARK: - Public Properties
 
-    var films: [ParametrFilms]?
+    var films: Results<ParametrFilms>?
     var reloadData: VoidHandler?
 
     // MARK: - Private Properties
 
     private var movieAPIService: MovieAPIServiceProtocol
+    private var repository: RepositoryProtocol?
 
     // MARK: - Initializers
 
-    init(movieAPIService: MovieAPIServiceProtocol) {
+    init(movieAPIService: MovieAPIServiceProtocol, repositoryProtocol: RepositoryProtocol) {
+        repository = repositoryProtocol
         self.movieAPIService = movieAPIService
         getTopRated()
+        getMovieRealm()
     }
 
     // MARK: - Public Methods
@@ -35,7 +39,8 @@ final class MovieViewModel: MovieViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case let .success(result):
-                self.films = result
+                let movies = result
+                self.repository?.save(object: movies)
                 DispatchQueue.main.async {
                     self.reloadData?()
                 }
@@ -43,5 +48,10 @@ final class MovieViewModel: MovieViewModelProtocol {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    func getMovieRealm() {
+        guard let getMovieFromRealm = repository?.get(type: ParametrFilms.self) else { return }
+        films = getMovieFromRealm
     }
 }
