@@ -7,7 +7,7 @@ import UIKit
 class BaseCoordinator {
     // MARK: - Public Properties
 
-    var childCoordinators: [BaseCoordinator] = []
+    private var childCoordinators: [BaseCoordinator] = []
 
     // MARK: - Public Methods
 
@@ -21,7 +21,7 @@ class BaseCoordinator {
     }
 
     func removeDependency(_ coordinator: BaseCoordinator?) {
-        guard childCoordinators.isEmpty == false,
+        guard !childCoordinators.isEmpty,
               let coordinator = coordinator
         else { return }
         for (index, element) in childCoordinators.reversed().enumerated() where element === coordinator {

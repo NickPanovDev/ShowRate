@@ -15,7 +15,7 @@ final class MovieViewModel: MovieViewModelProtocol {
     // MARK: - Public Properties
 
     var films: [ParametrFilms]?
-    var reloadData: (() -> ())?
+    var reloadData: VoidHandler?
 
     // MARK: - Private Properties
 

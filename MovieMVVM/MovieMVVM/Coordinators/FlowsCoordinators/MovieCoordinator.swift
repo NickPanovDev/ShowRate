@@ -1,14 +1,14 @@
-// MainCoordinator.swift
+// MovieCoordinator.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-final class MainCoordinator: BaseCoordinator {
+final class MovieCoordinator: BaseCoordinator {
     // MARK: - Public Properties
 
-    var navigationController: UINavigationController?
-    var assemblyModule: AssemblyModuleProtocol?
-    var onFinishFlow: (() -> ())?
+    private var navigationController: UINavigationController?
+    private var assemblyModule: AssemblyModuleProtocol?
+    var onFinishFlow: VoidHandler?
 
     // MARK: - Initializers
 
@@ -38,13 +38,8 @@ final class MainCoordinator: BaseCoordinator {
             guard let self = self else { return }
             self.showDetail(movieID: movieID)
         }
-        if navigationController == nil {
-            let navController = UINavigationController(rootViewController: movieVC)
-            navigationController = navController
-            setAsRoot(navController)
-        } else if let navigationController = navigationController {
-            navigationController.pushViewController(movieVC, animated: true)
-            setAsRoot(navigationController)
-        }
+        navigationController?.pushViewController(movieVC, animated: true)
+        guard let navigationController = navigationController else { return }
+        setAsRoot(navigationController)
     }
 }

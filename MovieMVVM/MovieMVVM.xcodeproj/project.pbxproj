@@ -16,7 +16,7 @@
 		BA06193A271710E300B6DCFE /* AssemblyModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA061939271710E300B6DCFE /* AssemblyModule.swift */; };
 		BA06193F2717135E00B6DCFE /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06193E2717135E00B6DCFE /* BaseCoordinator.swift */; };
 		BA06194D27172D4700B6DCFE /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06194C27172D4700B6DCFE /* ApplicationCoordinator.swift */; };
-		BA06195527172D5C00B6DCFE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06195427172D5C00B6DCFE /* MainCoordinator.swift */; };
+		BA06195527172D5C00B6DCFE /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06195427172D5C00B6DCFE /* MovieCoordinator.swift */; };
 		BA06196A2717743C00B6DCFE /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619692717743C00B6DCFE /* Typealiases.swift */; };
 		BA0619782717825D00B6DCFE /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619772717825D00B6DCFE /* CoordinatorTests.swift */; };
 		BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DD27143BD300E29EBB /* AppDelegate.swift */; };
@@ -60,7 +60,7 @@
 		BA061939271710E300B6DCFE /* AssemblyModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModule.swift; sourceTree = "<group>"; };
 		BA06193E2717135E00B6DCFE /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		BA06194C27172D4700B6DCFE /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
-		BA06195427172D5C00B6DCFE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		BA06195427172D5C00B6DCFE /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
 		BA0619692717743C00B6DCFE /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		BA0619772717825D00B6DCFE /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		BA85C4DA27143BD300E29EBB /* MovieMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,7 +162,7 @@
 		BA0619592717360F00B6DCFE /* FlowsCoordinators */ = {
 			isa = PBXGroup;
 			children = (
-				BA06195427172D5C00B6DCFE /* MainCoordinator.swift */,
+				BA06195427172D5C00B6DCFE /* MovieCoordinator.swift */,
 			);
 			path = FlowsCoordinators;
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA06195527172D5C00B6DCFE /* MainCoordinator.swift in Sources */,
+				BA06195527172D5C00B6DCFE /* MovieCoordinator.swift in Sources */,
 				BA06192E2715EAB300B6DCFE /* ImageAPIService.swift in Sources */,
 				BA06193A271710E300B6DCFE /* AssemblyModule.swift in Sources */,
 				BA06193F2717135E00B6DCFE /* BaseCoordinator.swift in Sources */,

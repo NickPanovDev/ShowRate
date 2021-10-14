@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         self.window = window
         let navController = UINavigationController()
-        coordinator = ApplicationCoordinator(navigationController: navController, assemblyBuilder: AssemblyModule())
+        coordinator = ApplicationCoordinator(navigationController: navController, assemblyModule: AssemblyModule())
         coordinator?.start()
     }
 

@@ -6,14 +6,14 @@ import UIKit
 final class ApplicationCoordinator: BaseCoordinator {
     // MARK: - Public Properties
 
-    var navigationController: UINavigationController
-    var assemblyModule: AssemblyModuleProtocol
+    private var navigationController: UINavigationController
+    private var assemblyModule: AssemblyModuleProtocol
 
     // MARK: - Initializers
 
-    init(navigationController: UINavigationController, assemblyBuilder: AssemblyModuleProtocol) {
+    init(navigationController: UINavigationController, assemblyModule: AssemblyModuleProtocol) {
         self.navigationController = navigationController
-        assemblyModule = assemblyBuilder
+        self.assemblyModule = assemblyModule
     }
 
     override func start() {
@@ -23,7 +23,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     // MARK: - Private Methods
 
     private func toMain() {
-        let coordinator = MainCoordinator(navigationController: navigationController, assemblyModule: assemblyModule)
+        let coordinator = MovieCoordinator(navigationController: navigationController, assemblyModule: assemblyModule)
 
         coordinator.onFinishFlow = { [weak self, weak coordinator] in
             guard let self = self else { return }

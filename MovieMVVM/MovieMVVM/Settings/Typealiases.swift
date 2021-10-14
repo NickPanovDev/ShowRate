@@ -3,3 +3,4 @@
 
 import UIKit
 typealias IntHandler = ((Int) -> ())
+typealias VoidHandler = (() -> ())

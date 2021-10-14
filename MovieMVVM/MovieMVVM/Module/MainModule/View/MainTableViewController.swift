@@ -7,7 +7,6 @@ final class MainTableViewController: UITableViewController {
     // MARK: - Public Properties
 
     var movieViewModel: MovieViewModelProtocol?
-    var coordinator: MainCoordinator?
     var showDetails: IntHandler?
 
     // MARK: - UITableViewController(MainTableViewController)

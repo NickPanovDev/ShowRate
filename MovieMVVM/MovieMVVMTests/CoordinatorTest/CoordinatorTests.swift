@@ -24,7 +24,7 @@ final class CoordinatorTests: XCTestCase {
         assemblyModule = AssemblyModule()
         appplicationCoordinator = ApplicationCoordinator(
             navigationController: navigationController,
-            assemblyBuilder: assemblyModule
+            assemblyModule: assemblyModule
         )
     }
 
