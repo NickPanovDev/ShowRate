@@ -1,6 +1,7 @@
 // FilmsTableViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 /// Ячейка таблицы MainTableViewController
 final class FilmsTableViewCell: UITableViewCell {
@@ -16,7 +17,7 @@ final class FilmsTableViewCell: UITableViewCell {
     private let releaseDateLabel = UILabel()
     private let gradeFilms = UILabel()
     private let baseView = UIView()
-    private let imageAPIService = ImageAPIService()
+    private let imageService = ImageService()
 
     // MARK: - UITableViewCell(FilmsTableViewCell)
 
@@ -27,7 +28,7 @@ final class FilmsTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configureCell(cell: [ParametrFilms]?, for indexPath: IndexPath) {
+    func configureCell(cell: Results<ParametrFilms>?, for indexPath: IndexPath) {
         guard let title = cell?[indexPath.row].title,
               let posterPath = cell?[indexPath.row].posterPath,
               let overview = cell?[indexPath.row].overview,
@@ -39,13 +40,15 @@ final class FilmsTableViewCell: UITableViewCell {
         releaseDateLabel.text = releaseDate
         gradeFilms.text = String(voteAverage)
 
-        imageAPIService.getPhoto(posterPath: posterPath) { [weak self] poster in
+        imageService.getImage(posterPath: posterPath) { [weak self] poster in
             guard let self = self else { return }
-            switch poster {
-            case let .success(image):
-                self.posterImageView.image = image
-            case let .failure(error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch poster {
+                case let .success(image):
+                    self.posterImageView.image = image
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }

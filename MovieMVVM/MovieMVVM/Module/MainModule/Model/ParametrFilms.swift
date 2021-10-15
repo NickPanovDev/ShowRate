@@ -2,19 +2,24 @@
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
+import RealmSwift
 
 /// Информация о фильмах
-struct ParametrFilms: Decodable {
+final class ParametrFilms: Object, Decodable {
     /// ID фильма
-    let id: Int?
+    @objc dynamic var id: Int
     /// Название фильма
-    let title: String?
+    @objc dynamic var title: String
     /// Описание фильма
-    let overview: String?
+    @objc dynamic var overview: String
     /// Рейтинг фильма
-    let voteAverage: Float?
+    @objc dynamic var voteAverage: Float
     /// Постер фильма
-    let posterPath: String?
+    @objc dynamic var posterPath: String
     /// Дата выхода
-    let releaseDate: String?
+    @objc dynamic var releaseDate: String
+
+    override static func primaryKey() -> String? {
+        "id"
+    }
 }

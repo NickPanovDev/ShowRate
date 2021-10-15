@@ -2,6 +2,7 @@
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
+import RealmSwift
 
 /// MovieAPIServiceProtocol
 protocol MovieAPIServiceProtocol {

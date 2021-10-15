@@ -1,7 +1,9 @@
 // DetailTableViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
+
 /// Ячейка таблицы DetailTableViewController
 final class DetailTableViewCell: UITableViewCell {
     // MARK: - Static Properties
@@ -14,7 +16,7 @@ final class DetailTableViewCell: UITableViewCell {
     private let titleLable = UILabel()
     private let descriptionLabel = UILabel()
     private let baseView = UIView()
-    private let imageAPIService = ImageAPIService()
+    private let imageService = ImageService()
 
     // MARK: - UITableViewCell(DetailTableViewCell)
 
@@ -33,13 +35,15 @@ final class DetailTableViewCell: UITableViewCell {
         titleLable.text = title
         descriptionLabel.text = overview
 
-        imageAPIService.getPhoto(posterPath: posterPath) { [weak self] poster in
+        imageService.getImage(posterPath: posterPath) { [weak self] poster in
             guard let self = self else { return }
-            switch poster {
-            case let .success(image):
-                self.postImageView.image = image
-            case let .failure(error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch poster {
+                case let .success(image):
+                    self.postImageView.image = image
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }

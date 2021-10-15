@@ -42,7 +42,6 @@ final class DetailTableViewController: UITableViewController {
             withIdentifier: DetailTableViewCell.identifier,
             for: indexPath
         ) as? DetailTableViewCell else { return UITableViewCell() }
-        title = detailViewModel?.films?.title
         cell.configureCell(cell: detailViewModel?.films, for: indexPath)
         return cell
     }

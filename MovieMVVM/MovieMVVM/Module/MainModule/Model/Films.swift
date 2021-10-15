@@ -1,12 +1,13 @@
-// Film.swift
+// Films.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
+import RealmSwift
 
 /// Параметры
-struct Films: Decodable {
+final class Films: Object, Decodable {
     /// Номер страницы
-    let page: Int
+    @objc dynamic var page: Int
     /// Список фильмов и их параметры
-    let results: [ParametrFilms]
+    var results: [ParametrFilms] = []
 }

@@ -16,7 +16,9 @@ final class AssemblyModule: AssemblyModuleProtocol {
     func createMainModule() -> UITableViewController {
         let view = MainTableViewController()
         let movieAPIService = MovieAPIService()
-        let viewModel = MovieViewModel(movieAPIService: movieAPIService)
+        let realmProvider = RealmProvider()
+        let repository = RealmRepository(realmProvider: realmProvider)
+        let viewModel = MovieViewModel(movieAPIService: movieAPIService, repositoryProtocol: repository)
         view.movieViewModel = viewModel
         return view
     }
@@ -24,7 +26,13 @@ final class AssemblyModule: AssemblyModuleProtocol {
     func createDetailModule(movieID: Int?) -> UITableViewController {
         let view = DetailTableViewController()
         let movieAPIService = MovieAPIService()
-        let viewModel = DetailViewModel(movieAPIService: movieAPIService, id: movieID)
+        let realmProvider = RealmProvider()
+        let repository = RealmRepository(realmProvider: realmProvider)
+        let viewModel = DetailViewModel(
+            movieAPIService: movieAPIService,
+            id: movieID,
+            repositoryProtocol: repository
+        )
         view.detailViewModel = viewModel
         return view
     }

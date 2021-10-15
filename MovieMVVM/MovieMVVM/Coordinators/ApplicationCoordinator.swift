@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// ApplicationCoordinator
 final class ApplicationCoordinator: BaseCoordinator {
     // MARK: - Public Properties
 

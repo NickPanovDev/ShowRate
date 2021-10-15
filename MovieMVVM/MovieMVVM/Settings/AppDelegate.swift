@@ -1,6 +1,7 @@
 // AppDelegate.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 
 @main
@@ -9,7 +10,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        true
+        let realm = try? Realm()
+        print(realm?.configuration.fileURL ?? "")
+        return true
     }
 
     // MARK: - UISceneSession Lifecycle
