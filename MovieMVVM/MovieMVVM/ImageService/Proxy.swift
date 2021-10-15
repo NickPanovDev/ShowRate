@@ -28,11 +28,11 @@ final class Proxy: ProxyProtocol {
         let image = cacheImageService.getImageFromCache(posterPath: posterPath)
 
         if image == nil {
-            imageAPIService.getImage(posterPath: posterPath) { result in
+            imageAPIService.getImage(posterPath: posterPath) { [weak self] result in
                 switch result {
                 case let .success(data):
                     guard let image = UIImage(data: data) else { return }
-                    self.cacheImageService.saveImageToCache(posterPath: posterPath, image: image)
+                    self?.cacheImageService.saveImageToCache(posterPath: posterPath, image: image)
                     completion(.success(image))
                 case let .failure(error):
                     completion(.failure(error))

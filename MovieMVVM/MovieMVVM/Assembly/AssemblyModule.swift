@@ -17,8 +17,8 @@ final class AssemblyModule: AssemblyModuleProtocol {
         let view = MainTableViewController()
         let movieAPIService = MovieAPIService()
         let realmProvider = RealmProvider()
-        let repositoryProtocol = RealmRepository(realmProvider: realmProvider)
-        let viewModel = MovieViewModel(movieAPIService: movieAPIService, repositoryProtocol: repositoryProtocol)
+        let repository = RealmRepository(realmProvider: realmProvider)
+        let viewModel = MovieViewModel(movieAPIService: movieAPIService, repositoryProtocol: repository)
         view.movieViewModel = viewModel
         return view
     }
@@ -27,11 +27,11 @@ final class AssemblyModule: AssemblyModuleProtocol {
         let view = DetailTableViewController()
         let movieAPIService = MovieAPIService()
         let realmProvider = RealmProvider()
-        let repositoryProtocol = RealmRepository(realmProvider: realmProvider)
+        let repository = RealmRepository(realmProvider: realmProvider)
         let viewModel = DetailViewModel(
             movieAPIService: movieAPIService,
             id: movieID,
-            repositoryProtocol: repositoryProtocol
+            repositoryProtocol: repository
         )
         view.detailViewModel = viewModel
         return view
