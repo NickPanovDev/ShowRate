@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         let realm = try? Realm()
         print(realm?.configuration.fileURL ?? "")
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first ?? "")
         return true
     }
 

@@ -24,6 +24,9 @@
 		BA0619AA271895EB00B6DCFE /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619A9271895EB00B6DCFE /* Films.swift */; };
 		BA0619B2271896BD00B6DCFE /* ParametrFilms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619B1271896BD00B6DCFE /* ParametrFilms.swift */; };
 		BA0619BA27189A8900B6DCFE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0619B927189A8900B6DCFE /* Repository.swift */; };
+		BA340CEC27190202005CFA53 /* CacheImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA340CD72718F9C4005CFA53 /* CacheImageService.swift */; };
+		BA340CF02719021D005CFA53 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA340CCD2718F997005CFA53 /* ImageService.swift */; };
+		BA340CF427190237005CFA53 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA340CD22718F9B2005CFA53 /* Proxy.swift */; };
 		BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DD27143BD300E29EBB /* AppDelegate.swift */; };
 		BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */; };
 		BA85C4E527143BD300E29EBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85C4E327143BD300E29EBB /* Main.storyboard */; };
@@ -70,6 +73,9 @@
 		BA0619A9271895EB00B6DCFE /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
 		BA0619B1271896BD00B6DCFE /* ParametrFilms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametrFilms.swift; sourceTree = "<group>"; };
 		BA0619B927189A8900B6DCFE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		BA340CCD2718F997005CFA53 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		BA340CD22718F9B2005CFA53 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		BA340CD72718F9C4005CFA53 /* CacheImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageService.swift; sourceTree = "<group>"; };
 		BA85C4DA27143BD300E29EBB /* MovieMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA85C4DD27143BD300E29EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +198,16 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		BA340CDC2718F9D4005CFA53 /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				BA340CCD2718F997005CFA53 /* ImageService.swift */,
+				BA340CD22718F9B2005CFA53 /* Proxy.swift */,
+				BA340CD72718F9C4005CFA53 /* CacheImageService.swift */,
+			);
+			path = ImageService;
+			sourceTree = "<group>";
+		};
 		BA85C4D127143BD300E29EBB = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +235,7 @@
 				BA06199A27185C0200B6DCFE /* Repository */,
 				BA06194427172D0000B6DCFE /* Coordinators */,
 				BA06194827172D1000B6DCFE /* Assembly */,
+				BA340CDC2718F9D4005CFA53 /* ImageService */,
 				BA06191D2715C31E00B6DCFE /* APIService */,
 				BA85C5492714411400E29EBB /* Module */,
 				BA85C5532714415900E29EBB /* Settings */,
@@ -519,6 +536,8 @@
 				BA06195527172D5C00B6DCFE /* MovieCoordinator.swift in Sources */,
 				BA06192E2715EAB300B6DCFE /* ImageAPIService.swift in Sources */,
 				BA06193A271710E300B6DCFE /* AssemblyModule.swift in Sources */,
+				BA340CEC27190202005CFA53 /* CacheImageService.swift in Sources */,
+				BA340CF427190237005CFA53 /* Proxy.swift in Sources */,
 				BA06193F2717135E00B6DCFE /* BaseCoordinator.swift in Sources */,
 				BA85C52527143E0100E29EBB /* DetailTableViewController.swift in Sources */,
 				BA0619BA27189A8900B6DCFE /* Repository.swift in Sources */,
@@ -534,6 +553,7 @@
 				BA0619AA271895EB00B6DCFE /* Films.swift in Sources */,
 				BA06196A2717743C00B6DCFE /* Typealiases.swift in Sources */,
 				BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */,
+				BA340CF02719021D005CFA53 /* ImageService.swift in Sources */,
 				BA85C53427143E6000E29EBB /* FilmsTableViewCell.swift in Sources */,
 				BA06194D27172D4700B6DCFE /* ApplicationCoordinator.swift in Sources */,
 			);

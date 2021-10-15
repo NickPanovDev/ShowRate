@@ -8,7 +8,6 @@ import RealmSwift
 protocol DetailViewModelProtocol: AnyObject {
     var id: Int? { get set }
     var films: Results<DetailModel>? { get set }
-//    var films: DetailModel? { get set }
     var reloadData: (() -> ())? { get set }
     func getDetailMovie()
 }
@@ -19,7 +18,6 @@ final class DetailViewModel: DetailViewModelProtocol {
 
     var id: Int?
     var films: Results<DetailModel>?
-//    var films: DetailModel?
     var reloadData: VoidHandler?
 
     // MARK: - Private Properties
@@ -34,6 +32,7 @@ final class DetailViewModel: DetailViewModelProtocol {
         self.id = id
         repository = repositoryProtocol
         getDetailMovie()
+        getMovieDetailRealm()
     }
 
     // MARK: - Public Method
@@ -45,7 +44,6 @@ final class DetailViewModel: DetailViewModelProtocol {
             case let .success(parametrFilms):
                 let movies = parametrFilms
                 self.repository?.saveSingle(object: movies)
-//                self.films = parametrFilms
                 DispatchQueue.main.async {
                     self.reloadData?()
                 }

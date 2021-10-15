@@ -16,7 +16,7 @@ final class DetailTableViewCell: UITableViewCell {
     private let titleLable = UILabel()
     private let descriptionLabel = UILabel()
     private let baseView = UIView()
-    private let imageAPIService = ImageAPIService()
+    private let imageService = ImageService()
 
     // MARK: - UITableViewCell(DetailTableViewCell)
 
@@ -30,18 +30,20 @@ final class DetailTableViewCell: UITableViewCell {
     func configureCell(cell: Results<DetailModel>?, for indexPath: IndexPath) {
         guard let title = cell?[indexPath.row].title,
               let posterPath = cell?[indexPath.row].posterPath,
-              let overview = cell?[indexPath.row].overview else { return } // [indexPath.row] добавил
+              let overview = cell?[indexPath.row].overview else { return }
 
         titleLable.text = title
         descriptionLabel.text = overview
 
-        imageAPIService.getPhoto(posterPath: posterPath) { [weak self] poster in
+        imageService.getImage(posterPath: posterPath) { [weak self] poster in
             guard let self = self else { return }
-            switch poster {
-            case let .success(image):
-                self.postImageView.image = image
-            case let .failure(error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch poster {
+                case let .success(image):
+                    self.postImageView.image = image
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
