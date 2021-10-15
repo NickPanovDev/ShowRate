@@ -12,7 +12,7 @@ final class FilmsTableViewCell: UITableViewCell {
     // MARK: - Private Properties
 
     private let posterImageView = UIImageView()
-    private let titleLable = UILabel()
+    private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let releaseDateLabel = UILabel()
     private let gradeFilms = UILabel()
@@ -35,7 +35,7 @@ final class FilmsTableViewCell: UITableViewCell {
               let releaseDate = cell?[indexPath.row].releaseDate,
               let voteAverage = cell?[indexPath.row].voteAverage else { return }
 
-        titleLable.text = title
+        titleLabel.text = title
         descriptionLabel.text = overview
         releaseDateLabel.text = releaseDate
         gradeFilms.text = String(voteAverage)
@@ -56,7 +56,7 @@ final class FilmsTableViewCell: UITableViewCell {
     // MARK: - Private Methods
 
     private func setupView() {
-        createTitleLable()
+        createTitleLabel()
         createPosterImageView()
         createDescriptionLabel()
         createReleaseDateLabel()
@@ -65,7 +65,7 @@ final class FilmsTableViewCell: UITableViewCell {
 
         createBaseViewConstraint()
         createPosterImageViewConstraint()
-        createTitleLableConstraint()
+        createTitleLabelConstraint()
         createDescriptionLabelConstraint()
         createGradeFilmsConstraint()
         createReleaseDateLabelConstraint()
@@ -110,18 +110,18 @@ final class FilmsTableViewCell: UITableViewCell {
             .isActive = true
     }
 
-    private func createTitleLable() {
-        titleLable.translatesAutoresizingMaskIntoConstraints = false
-        titleLable.font = UIFont.boldSystemFont(ofSize: 16)
-        titleLable.textAlignment = .center
-        titleLable.numberOfLines = 2
-        baseView.addSubview(titleLable)
+    private func createTitleLabel() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 2
+        baseView.addSubview(titleLabel)
     }
 
-    private func createTitleLableConstraint() {
-        titleLable.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 5).isActive = true
-        titleLable.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 10).isActive = true
-        titleLable.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -10).isActive = true
+    private func createTitleLabelConstraint() {
+        titleLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 5).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 10).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -10).isActive = true
     }
 
     private func createDescriptionLabel() {
@@ -131,7 +131,7 @@ final class FilmsTableViewCell: UITableViewCell {
     }
 
     private func createDescriptionLabelConstraint() {
-        descriptionLabel.topAnchor.constraint(equalTo: titleLable.topAnchor, constant: 40).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 40).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 10).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -10).isActive = true
     }
