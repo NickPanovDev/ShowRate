@@ -7,8 +7,8 @@ import RealmSwift
 /// RealmProviderProtocol
 protocol RealmProviderProtocol {
     func saveToRealm<T: Object>(object: [T])
-    func saveSingleToRealm<T: Object>(object: T)
-    func loadingRealm<T: Object>(type: T.Type) -> Results<T>?
+    func loadingDetail<T>(type: T.Type, column: String?, movieID: Int?) -> Results<T>? where T: Object
+    func loadingMovie<T: Object>(type: T.Type) -> Results<T>?
     func deleteRealm<T: Object>(results: Results<T>)
 }
 
@@ -31,18 +31,22 @@ final class RealmProvider: RealmProviderProtocol {
         }
     }
 
-    func saveSingleToRealm<T: Object>(object: T) {
-        do {
-            let realm = try Realm(configuration: config)
-            realm.beginWrite()
-            realm.add(object)
-            try realm.commitWrite()
-        } catch {
-            print(error.localizedDescription)
+    func loadingDetail<T>(type: T.Type, column: String? = nil, movieID: Int? = nil) -> Results<T>? where T: Object {
+        if column != nil {
+            guard let column = column,
+                  let movieID = movieID else { return nil }
+            let predicate = NSPredicate(format: "\(column) == %@", String(movieID))
+            let realm = try? Realm()
+            let movieDetailRealm = realm?.objects(type).filter(predicate)
+            return movieDetailRealm
+        } else {
+            let realm = try? Realm(configuration: config)
+            guard let results = realm?.objects(type) else { return nil }
+            return results
         }
     }
 
-    func loadingRealm<T: Object>(type: T.Type) -> Results<T>? {
+    func loadingMovie<T: Object>(type: T.Type) -> Results<T>? {
         do {
             let realm = try Realm(configuration: config)
             return realm.objects(type)

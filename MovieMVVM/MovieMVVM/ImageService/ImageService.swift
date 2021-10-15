@@ -3,10 +3,12 @@
 
 import UIKit
 
+/// ImageServiceProtocol
 protocol ImageServiceProtocol {
     func getImage(posterPath: String, completion: @escaping (Swift.Result<UIImage, Error>) -> ())
 }
 
+/// ImageService
 final class ImageService: ImageServiceProtocol {
     // MARK: - Public Methods
 

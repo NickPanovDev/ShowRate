@@ -4,10 +4,12 @@
 import Foundation
 import UIKit
 
+/// ImageAPIServiceProtocol
 protocol ImageAPIServiceProtocol: AnyObject {
     func getImage(posterPath: String, completion: @escaping (Swift.Result<Data, Error>) -> ())
 }
 
+/// ImageAPIService
 final class ImageAPIService: ImageAPIServiceProtocol {
     // MARK: - Private Properties
 

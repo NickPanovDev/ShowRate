@@ -3,11 +3,13 @@
 
 import UIKit
 
+/// CacheImageServiceProtocol
 protocol CacheImageServiceProtocol {
     func saveImageToCache(posterPath: String, image: UIImage)
     func getImageFromCache(posterPath: String) -> UIImage?
 }
 
+/// CacheImageService
 final class CacheImageService: CacheImageServiceProtocol {
     // MARK: - Private Properties
 
@@ -15,7 +17,7 @@ final class CacheImageService: CacheImageServiceProtocol {
     private let cacheLifeTime: TimeInterval = 30 * 24 * 60 * 60
     private var images: [String: UIImage] = [:]
 
-    // MARK: - Internal Methods
+    // MARK: - Public Methods
 
     func saveImageToCache(posterPath: String, image: UIImage) {
         guard let fileName = getImagePath(posterPath: posterPath),

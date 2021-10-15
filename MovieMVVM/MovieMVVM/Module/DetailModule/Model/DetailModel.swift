@@ -12,4 +12,10 @@ final class DetailModel: Object, Decodable {
     @objc dynamic var overview: String
     /// Постер фильма
     @objc dynamic var posterPath: String
+    /// ID
+    @objc dynamic var movieID: String?
+
+    override static func primaryKey() -> String? {
+        "movieID"
+    }
 }

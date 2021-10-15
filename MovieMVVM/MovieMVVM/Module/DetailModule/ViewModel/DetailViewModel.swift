@@ -7,7 +7,8 @@ import RealmSwift
 /// DetailViewModelProtocol
 protocol DetailViewModelProtocol: AnyObject {
     var id: Int? { get set }
-    var films: Results<DetailModel>? { get set }
+
+    var films: DetailModel? { get set }
     var reloadData: (() -> ())? { get set }
     func getDetailMovie()
 }
@@ -17,7 +18,7 @@ final class DetailViewModel: DetailViewModelProtocol {
     // MARK: - Public Properties
 
     var id: Int?
-    var films: Results<DetailModel>?
+    var films: DetailModel?
     var reloadData: VoidHandler?
 
     // MARK: - Private Properties
@@ -32,29 +33,37 @@ final class DetailViewModel: DetailViewModelProtocol {
         self.id = id
         repository = repositoryProtocol
         getDetailMovie()
-        getMovieDetailRealm()
     }
 
     // MARK: - Public Method
 
     func getDetailMovie() {
-        movieAPIService.getDetailRated(id: id) { [weak self] parametrFilms in
-            guard let self = self else { return }
-            switch parametrFilms {
-            case let .success(parametrFilms):
-                let movies = parametrFilms
-                self.repository?.saveSingle(object: movies)
-                DispatchQueue.main.async {
-                    self.reloadData?()
-                }
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
+        let movieDetailRealm = repository?.get(
+            type: DetailModel.self,
+            column: "movieID",
+            movieID: id
+        )
+        var detail: DetailModel?
+        movieDetailRealm?.forEach { details in
+            detail = details
         }
-    }
+        films = detail
 
-    func getMovieDetailRealm() {
-        guard let getMovieDetailFromRealm = repository?.get(type: DetailModel.self) else { return }
-        films = getMovieDetailFromRealm
+        if films == nil {
+            movieAPIService.getDetailRated(id: id, complition: { [weak self] result in
+                switch result {
+                case let .failure(error):
+                    print(error.localizedDescription)
+                case let .success(movieDetailRealm):
+                    self?.films = movieDetailRealm
+                    self?.films?.movieID = String(self?.id ?? 0)
+
+                    DispatchQueue.main.async {
+                        self?.reloadData?()
+                        self?.repository?.save(object: [movieDetailRealm])
+                    }
+                }
+            })
+        }
     }
 }

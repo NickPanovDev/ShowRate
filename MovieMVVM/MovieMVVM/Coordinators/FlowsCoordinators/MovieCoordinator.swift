@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// MovieCoordinator
 final class MovieCoordinator: BaseCoordinator {
     // MARK: - Public Properties
 
