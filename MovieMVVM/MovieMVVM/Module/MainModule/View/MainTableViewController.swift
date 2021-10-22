@@ -20,6 +20,7 @@ final class MainTableViewController: UITableViewController {
 
     private func setupView() {
         title = "Топ рейтинг"
+        tableView.accessibilityIdentifier = "MainTableViewController"
         createRegister()
         reloadData()
     }

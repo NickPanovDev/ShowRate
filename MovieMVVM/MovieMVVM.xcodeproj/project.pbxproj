@@ -27,6 +27,9 @@
 		BA340CEC27190202005CFA53 /* CacheImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA340CD72718F9C4005CFA53 /* CacheImageService.swift */; };
 		BA340CF02719021D005CFA53 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA340CCD2718F997005CFA53 /* ImageService.swift */; };
 		BA340CF427190237005CFA53 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA340CD22718F9B2005CFA53 /* Proxy.swift */; };
+		BA587AC8271A270E0041F1B1 /* DetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA587AC7271A270E0041F1B1 /* DetailViewModelTest.swift */; };
+		BA587AD0271A2C9B0041F1B1 /* MovieViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA587ACF271A2C9B0041F1B1 /* MovieViewModelTest.swift */; };
+		BA587AD8271A30BB0041F1B1 /* RealmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA587AD7271A30BB0041F1B1 /* RealmTest.swift */; };
 		BA85C4DE27143BD300E29EBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DD27143BD300E29EBB /* AppDelegate.swift */; };
 		BA85C4E027143BD300E29EBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */; };
 		BA85C4E527143BD300E29EBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85C4E327143BD300E29EBB /* Main.storyboard */; };
@@ -76,6 +79,9 @@
 		BA340CCD2718F997005CFA53 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BA340CD22718F9B2005CFA53 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
 		BA340CD72718F9C4005CFA53 /* CacheImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageService.swift; sourceTree = "<group>"; };
+		BA587AC7271A270E0041F1B1 /* DetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTest.swift; sourceTree = "<group>"; };
+		BA587ACF271A2C9B0041F1B1 /* MovieViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModelTest.swift; sourceTree = "<group>"; };
+		BA587AD7271A30BB0041F1B1 /* RealmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTest.swift; sourceTree = "<group>"; };
 		BA85C4DA27143BD300E29EBB /* MovieMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA85C4DD27143BD300E29EBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +214,23 @@
 			path = ImageService;
 			sourceTree = "<group>";
 		};
+		BA587ABD271A1A670041F1B1 /* RealmTest */ = {
+			isa = PBXGroup;
+			children = (
+				BA587AD7271A30BB0041F1B1 /* RealmTest.swift */,
+			);
+			path = RealmTest;
+			sourceTree = "<group>";
+		};
+		BA587ABE271A1A700041F1B1 /* ViewModelTest */ = {
+			isa = PBXGroup;
+			children = (
+				BA587AC7271A270E0041F1B1 /* DetailViewModelTest.swift */,
+				BA587ACF271A2C9B0041F1B1 /* MovieViewModelTest.swift */,
+			);
+			path = ViewModelTest;
+			sourceTree = "<group>";
+		};
 		BA85C4D127143BD300E29EBB = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +270,8 @@
 		BA85C4F327143BD600E29EBB /* MovieMVVMTests */ = {
 			isa = PBXGroup;
 			children = (
+				BA587ABE271A1A700041F1B1 /* ViewModelTest */,
+				BA587ABD271A1A670041F1B1 /* RealmTest */,
 				BA06197F2717826300B6DCFE /* CoordinatorTest */,
 				BA85C4F427143BD600E29EBB /* MovieMVVMTests.swift */,
 				BA85C4F627143BD600E29EBB /* Info.plist */,
@@ -563,8 +588,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA587AD0271A2C9B0041F1B1 /* MovieViewModelTest.swift in Sources */,
 				BA0619782717825D00B6DCFE /* CoordinatorTests.swift in Sources */,
 				BA85C4F527143BD600E29EBB /* MovieMVVMTests.swift in Sources */,
+				BA587AC8271A270E0041F1B1 /* DetailViewModelTest.swift in Sources */,
+				BA587AD8271A30BB0041F1B1 /* RealmTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

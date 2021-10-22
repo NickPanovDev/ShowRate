@@ -32,9 +32,9 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BA85C4EF27143BD600E29EBB"
-            BuildableName = "MovieMVVMTests.xctest"
-            BlueprintName = "MovieMVVMTests"
+            BlueprintIdentifier = "BA85C4D927143BD300E29EBB"
+            BuildableName = "MovieMVVM.app"
+            BlueprintName = "MovieMVVM"
             ReferencedContainer = "container:MovieMVVM.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>

@@ -13,7 +13,7 @@ final class DetailTableViewCell: UITableViewCell {
     // MARK: - Private Properties
 
     private let postImageView = UIImageView()
-    private let titleLable = UILabel()
+    private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let baseView = UIView()
     private let imageService = ImageService()
@@ -32,7 +32,7 @@ final class DetailTableViewCell: UITableViewCell {
               let posterPath = cell?.posterPath,
               let overview = cell?.overview else { return }
 
-        titleLable.text = title
+        titleLabel.text = title
         descriptionLabel.text = overview
 
         imageService.getImage(posterPath: posterPath) { [weak self] poster in
@@ -51,14 +51,14 @@ final class DetailTableViewCell: UITableViewCell {
     // MARK: - private methods
 
     private func setupView() {
-        createTitleLable()
+        createTitleLabel()
         createPosterImageView()
         createDescriptionLabel()
         createBaseView()
 
         createBaseViewConstraint()
         createPosterImageViewConstraint()
-        createTitleLableConstraint()
+        createTitleLabelConstraint()
         createDescriptionLabelConstraint()
     }
 
@@ -100,19 +100,20 @@ final class DetailTableViewCell: UITableViewCell {
             .isActive = true
     }
 
-    private func createTitleLable() {
-        titleLable.translatesAutoresizingMaskIntoConstraints = false
-        titleLable.font = UIFont.boldSystemFont(ofSize: 20)
-        titleLable.numberOfLines = 2
-        titleLable.textAlignment = .center
-        baseView.addSubview(titleLable)
+    private func createTitleLabel() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.accessibilityIdentifier = "titleLabel"
+        titleLabel.numberOfLines = 2
+        titleLabel.textAlignment = .center
+        baseView.addSubview(titleLabel)
     }
 
-    private func createTitleLableConstraint() {
-        titleLable.topAnchor.constraint(equalTo: postImageView.topAnchor, constant: 380).isActive = true
-        titleLable.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 10)
+    private func createTitleLabelConstraint() {
+        titleLabel.topAnchor.constraint(equalTo: postImageView.topAnchor, constant: 380).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 10)
             .isActive = true
-        titleLable.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -10)
+        titleLabel.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -10)
             .isActive = true
     }
 
@@ -123,7 +124,7 @@ final class DetailTableViewCell: UITableViewCell {
     }
 
     private func createDescriptionLabelConstraint() {
-        descriptionLabel.topAnchor.constraint(equalTo: titleLable.topAnchor, constant: 50).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 50).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 10).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -10).isActive = true
     }
