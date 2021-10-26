@@ -1,9 +1,9 @@
 // BaseCoordinator.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import UIKit
 
-/// BaseCoordinator
+/// Базовый координатор
 class BaseCoordinator {
     // MARK: - Public Properties
 

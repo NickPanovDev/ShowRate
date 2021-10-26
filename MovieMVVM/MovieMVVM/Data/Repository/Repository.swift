@@ -1,10 +1,9 @@
 // Repository.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import Foundation
 import RealmSwift
 
-/// RepositoryProtocol
 protocol RepositoryProtocol {
     func save<T: Object>(object: [T])
     func get<T>(type: T.Type, column: String?, movieID: Int?) -> Results<T>? where T: Object
@@ -12,7 +11,6 @@ protocol RepositoryProtocol {
     func delete<T: Object>(results: Results<T>)
 }
 
-/// RealmRepository
 final class RealmRepository: RepositoryProtocol {
     // MARK: - Private Properties
 

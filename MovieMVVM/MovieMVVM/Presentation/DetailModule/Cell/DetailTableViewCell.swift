@@ -1,5 +1,5 @@
 // DetailTableViewCell.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import RealmSwift
 import UIKit

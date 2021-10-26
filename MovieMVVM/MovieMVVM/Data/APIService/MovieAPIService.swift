@@ -1,16 +1,14 @@
 // MovieAPIService.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import Foundation
 import RealmSwift
 
-/// MovieAPIServiceProtocol
 protocol MovieAPIServiceProtocol {
     func getRated(complition: @escaping (Swift.Result<[ParametrFilms], Error>) -> Void)
     func getDetailRated(id: Int?, complition: @escaping (Swift.Result<DetailModel, Error>) -> Void)
 }
 
-/// MovieAPIService
 final class MovieAPIService: MovieAPIServiceProtocol {
     // MARK: - Public Methods
 

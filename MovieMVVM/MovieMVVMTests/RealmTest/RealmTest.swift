@@ -1,5 +1,5 @@
 // RealmTest.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 @testable import MovieMVVM
 import RealmSwift

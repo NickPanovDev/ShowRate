@@ -1,10 +1,10 @@
 // DetailModel.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import Foundation
 import RealmSwift
 
-/// DetailModel
+/// Информация о конкретном фильме
 final class DetailModel: Object, Decodable {
     /// Название фильма
     @objc dynamic var title: String
