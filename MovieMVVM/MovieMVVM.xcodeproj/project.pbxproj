@@ -136,14 +136,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		BA0619112715C2A800B6DCFE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BA0619092715C2A400B6DCFE /* DetailModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BA06191D2715C31E00B6DCFE /* APIService */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +158,6 @@
 			children = (
 				BA06193E2717135E00B6DCFE /* BaseCoordinator.swift */,
 				BA06194C27172D4700B6DCFE /* ApplicationCoordinator.swift */,
-				BA0619592717360F00B6DCFE /* FlowsCoordinators */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -179,12 +170,12 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
-		BA0619592717360F00B6DCFE /* FlowsCoordinators */ = {
+		BA0619592717360F00B6DCFE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
 				BA06195427172D5C00B6DCFE /* MovieCoordinator.swift */,
 			);
-			path = FlowsCoordinators;
+			path = Flows;
 			sourceTree = "<group>";
 		};
 		BA06197F2717826300B6DCFE /* CoordinatorTest */ = {
@@ -231,6 +222,72 @@
 			path = ViewModelTest;
 			sourceTree = "<group>";
 		};
+		BA587AE5272312DA0041F1B1 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C4EB27143BD500E29EBB /* Info.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		BA587AE62723138C0041F1B1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BA06194827172D1000B6DCFE /* Assembly */,
+				BA06194427172D0000B6DCFE /* Coordinators */,
+				BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */,
+				BA85C4DD27143BD300E29EBB /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BA587AE72723149F0041F1B1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BA340CDC2718F9D4005CFA53 /* ImageService */,
+				BA06199A27185C0200B6DCFE /* Repository */,
+				BA06191D2715C31E00B6DCFE /* APIService */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BA587AE82723167A0041F1B1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BA85C52927143E2400E29EBB /* MainModule */,
+				BA85C52D27143E3100E29EBB /* DetailModule */,
+				BA0619592717360F00B6DCFE /* Flows */,
+				BA587AE9272316DB0041F1B1 /* Utils */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BA587AE9272316DB0041F1B1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BA0619692717743C00B6DCFE /* Typealiases.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BA587AEA2723172A0041F1B1 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BA587AEB2723174A0041F1B1 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BA587AEB2723174A0041F1B1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				BA0619A9271895EB00B6DCFE /* Films.swift */,
+				BA0619B1271896BD00B6DCFE /* ParametrFilms.swift */,
+				BA0619092715C2A400B6DCFE /* DetailModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		BA85C4D127143BD300E29EBB = {
 			isa = PBXGroup;
 			children = (
@@ -254,14 +311,11 @@
 		BA85C4DC27143BD300E29EBB /* MovieMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				BA85C4EB27143BD500E29EBB /* Info.plist */,
-				BA06199A27185C0200B6DCFE /* Repository */,
-				BA06194427172D0000B6DCFE /* Coordinators */,
-				BA06194827172D1000B6DCFE /* Assembly */,
-				BA340CDC2718F9D4005CFA53 /* ImageService */,
-				BA06191D2715C31E00B6DCFE /* APIService */,
-				BA85C5492714411400E29EBB /* Module */,
-				BA85C5532714415900E29EBB /* Settings */,
+				BA587AE62723138C0041F1B1 /* Application */,
+				BA587AE72723149F0041F1B1 /* Data */,
+				BA587AEA2723172A0041F1B1 /* Domain */,
+				BA587AE82723167A0041F1B1 /* Presentation */,
+				BA587AE5272312DA0041F1B1 /* Environments */,
 				BA85C5482714410000E29EBB /* Resources */,
 			);
 			path = MovieMVVM;
@@ -288,22 +342,12 @@
 			path = MovieMVVMUITests;
 			sourceTree = "<group>";
 		};
-		BA85C51B27143D9100E29EBB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BA0619A9271895EB00B6DCFE /* Films.swift */,
-				BA0619B1271896BD00B6DCFE /* ParametrFilms.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BA85C52927143E2400E29EBB /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
 				BA85C52E27143E3E00E29EBB /* View */,
 				BA85C53827143E7C00E29EBB /* Cell */,
 				BA0618FF2714DEE100B6DCFE /* ViewModel */,
-				BA85C51B27143D9100E29EBB /* Model */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -313,7 +357,6 @@
 			children = (
 				BA85C52F27143E4400E29EBB /* View */,
 				BA85C54127143EAE00E29EBB /* Cell */,
-				BA0619112715C2A800B6DCFE /* Model */,
 				BA0619292715DAF200B6DCFE /* ViewModel */,
 			);
 			path = DetailModule;
@@ -354,30 +397,11 @@
 		BA85C5482714410000E29EBB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA85C4E327143BD300E29EBB /* Main.storyboard */,
 				BA85C4E627143BD500E29EBB /* Assets.xcassets */,
 				BA85C4E827143BD500E29EBB /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		BA85C5492714411400E29EBB /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				BA85C52927143E2400E29EBB /* MainModule */,
-				BA85C52D27143E3100E29EBB /* DetailModule */,
-			);
-			path = Module;
-			sourceTree = "<group>";
-		};
-		BA85C5532714415900E29EBB /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				BA0619692717743C00B6DCFE /* Typealiases.swift */,
-				BA85C4DD27143BD300E29EBB /* AppDelegate.swift */,
-				BA85C4DF27143BD300E29EBB /* SceneDelegate.swift */,
-				BA85C4E327143BD300E29EBB /* Main.storyboard */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -762,7 +786,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9P5WQRQM8;
-				INFOPLIST_FILE = MovieMVVM/Info.plist;
+				INFOPLIST_FILE = MovieMVVM/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -781,7 +805,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9P5WQRQM8;
-				INFOPLIST_FILE = MovieMVVM/Info.plist;
+				INFOPLIST_FILE = MovieMVVM/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
