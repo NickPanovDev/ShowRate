@@ -1,5 +1,5 @@
 // DetailTableViewController.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import UIKit
 /// Таблица детального обзора фильма

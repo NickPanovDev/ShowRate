@@ -1,10 +1,9 @@
 // DetailViewModel.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import Foundation
 import RealmSwift
 
-/// DetailViewModelProtocol
 protocol DetailViewModelProtocol: AnyObject {
     var id: Int? { get set }
 
@@ -13,7 +12,6 @@ protocol DetailViewModelProtocol: AnyObject {
     func getDetailMovie()
 }
 
-/// DetailViewModel
 final class DetailViewModel: DetailViewModelProtocol {
     // MARK: - Public Properties
 

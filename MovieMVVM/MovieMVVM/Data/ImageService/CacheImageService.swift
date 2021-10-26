@@ -1,15 +1,13 @@
 // CacheImageService.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import UIKit
 
-/// CacheImageServiceProtocol
 protocol CacheImageServiceProtocol {
     func saveImageToCache(posterPath: String, image: UIImage)
     func getImageFromCache(posterPath: String) -> UIImage?
 }
 
-/// CacheImageService
 final class CacheImageService: CacheImageServiceProtocol {
     // MARK: - Private Properties
 

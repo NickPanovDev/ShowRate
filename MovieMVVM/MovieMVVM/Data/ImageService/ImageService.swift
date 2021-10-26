@@ -1,14 +1,12 @@
 // ImageService.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import UIKit
 
-/// ImageServiceProtocol
 protocol ImageServiceProtocol {
     func getImage(posterPath: String, completion: @escaping (Swift.Result<UIImage, Error>) -> ())
 }
 
-/// ImageService
 final class ImageService: ImageServiceProtocol {
     // MARK: - Public Methods
 

@@ -1,15 +1,13 @@
 // AssemblyModule.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import UIKit
 
-/// AssemblyModuleProtocol
 protocol AssemblyModuleProtocol {
     func createMainModule() -> UITableViewController
     func createDetailModule(movieID: Int?) -> UITableViewController
 }
 
-/// AssemblyModule
 final class AssemblyModule: AssemblyModuleProtocol {
     // MARK: - Public Methods
 

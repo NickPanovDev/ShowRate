@@ -1,14 +1,12 @@
 // Proxy.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import UIKit
 
-/// ProxyProtocol
 protocol ProxyProtocol {
     func loadImage(posterPath: String, completion: @escaping (Swift.Result<UIImage, Error>) -> Void)
 }
 
-/// Proxy
 final class Proxy: ProxyProtocol {
     // MARK: - Private Properties
 

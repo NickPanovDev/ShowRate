@@ -1,17 +1,15 @@
 // MovieViewModel.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import Foundation
 import RealmSwift
 
-/// MovieViewModelProtocol
 protocol MovieViewModelProtocol: AnyObject {
     var films: Results<ParametrFilms>? { get set }
     var reloadData: (() -> ())? { get set }
     func getTopRated()
 }
 
-/// MovieViewModel
 final class MovieViewModel: MovieViewModelProtocol {
     // MARK: - Public Properties
 

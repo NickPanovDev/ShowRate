@@ -1,10 +1,9 @@
 // RealmProvider.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import Foundation
 import RealmSwift
 
-/// RealmProviderProtocol
 protocol RealmProviderProtocol {
     func saveToRealm<T: Object>(object: [T])
     func loadingDetail<T>(type: T.Type, column: String?, movieID: Int?) -> Results<T>? where T: Object
@@ -12,7 +11,6 @@ protocol RealmProviderProtocol {
     func deleteRealm<T: Object>(results: Results<T>)
 }
 
-/// RealmProvider
 final class RealmProvider: RealmProviderProtocol {
     // MARK: - Private Properties
 

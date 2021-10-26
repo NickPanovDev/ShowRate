@@ -1,9 +1,8 @@
 // ApplicationCoordinator.swift
-// Copyright © RoadMap. All rights reserved.
+// Copyright © Movie. All rights reserved.
 
 import UIKit
 
-/// ApplicationCoordinator
 final class ApplicationCoordinator: BaseCoordinator {
     // MARK: - Public Properties
 
