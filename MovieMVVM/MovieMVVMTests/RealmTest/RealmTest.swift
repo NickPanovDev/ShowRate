@@ -1,5 +1,5 @@
 // RealmTest.swift
-// Copyright © Movie. All rights reserved.
+// Copyright © ShowRate. All rights reserved.
 
 @testable import MovieMVVM
 import RealmSwift
