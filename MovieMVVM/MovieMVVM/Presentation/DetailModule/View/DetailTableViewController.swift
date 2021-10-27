@@ -1,5 +1,5 @@
 // DetailTableViewController.swift
-// Copyright © Movie. All rights reserved.
+// Copyright © ShowRate. All rights reserved.
 
 import UIKit
 /// Таблица детального обзора фильма
