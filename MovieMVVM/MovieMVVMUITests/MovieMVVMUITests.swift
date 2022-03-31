@@ -16,7 +16,7 @@ class MovieMVVMUITests: XCTestCase {
     override func tearDownWithError() throws {}
 
     func testExample() throws {
-        let tableViewModel = application.tables["MainTableViewController"]
+        let tableViewModel = application.tables["MainViewController"]
         tableViewModel.swipeUp()
         let tapOnCell = tableViewModel.cells.element(boundBy: 7)
         tapOnCell.tap()
