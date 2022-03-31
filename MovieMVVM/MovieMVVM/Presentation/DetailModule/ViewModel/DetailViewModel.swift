@@ -6,9 +6,8 @@ import RealmSwift
 
 protocol DetailViewModelProtocol: AnyObject {
     var id: Int? { get set }
-
     var films: DetailModel? { get set }
-    var reloadData: (() -> ())? { get set }
+    var reloadData: VoidHandler? { get set }
     func getDetailMovie()
 }
 
@@ -49,16 +48,17 @@ final class DetailViewModel: DetailViewModelProtocol {
 
         if films == nil {
             movieAPIService.getDetailRated(id: id, complition: { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case let .failure(error):
                     print(error.localizedDescription)
                 case let .success(movieDetailRealm):
-                    self?.films = movieDetailRealm
-                    self?.films?.movieID = String(self?.id ?? 0)
+                    self.films = movieDetailRealm
+                    self.films?.movieID = String(self.id ?? 0)
 
                     DispatchQueue.main.async {
-                        self?.reloadData?()
-                        self?.repository?.save(object: [movieDetailRealm])
+                        self.reloadData?()
+                        self.repository?.save(object: [movieDetailRealm])
                     }
                 }
             })

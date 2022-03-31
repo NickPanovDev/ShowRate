@@ -4,15 +4,15 @@
 import UIKit
 
 protocol AssemblyModuleProtocol {
-    func createMainModule() -> UITableViewController
-    func createDetailModule(movieID: Int?) -> UITableViewController
+    func createMainModule() -> UIViewController
+    func createDetailModule(movieID: Int?) -> UIViewController
 }
 
 final class AssemblyModule: AssemblyModuleProtocol {
     // MARK: - Public Methods
 
-    func createMainModule() -> UITableViewController {
-        let view = MainTableViewController()
+    func createMainModule() -> UIViewController {
+        let view = MainViewController()
         let movieAPIService = MovieAPIService()
         let realmProvider = RealmProvider()
         let repository = RealmRepository(realmProvider: realmProvider)
@@ -21,8 +21,8 @@ final class AssemblyModule: AssemblyModuleProtocol {
         return view
     }
 
-    func createDetailModule(movieID: Int?) -> UITableViewController {
-        let view = DetailTableViewController()
+    func createDetailModule(movieID: Int?) -> UIViewController {
+        let view = DetailViewController()
         let movieAPIService = MovieAPIService()
         let realmProvider = RealmProvider()
         let repository = RealmRepository(realmProvider: realmProvider)
