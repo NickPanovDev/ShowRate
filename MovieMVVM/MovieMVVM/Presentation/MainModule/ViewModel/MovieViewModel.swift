@@ -6,7 +6,7 @@ import RealmSwift
 
 protocol MovieViewModelProtocol: AnyObject {
     var films: Results<ParametrFilms>? { get set }
-    var reloadData: (() -> ())? { get set }
+    var reloadData: VoidHandler? { get set }
     func getTopRated()
 }
 

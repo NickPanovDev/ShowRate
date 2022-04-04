@@ -1,11 +1,10 @@
-// DetailTableViewCell.swift
+// DetailCollectionViewCell.swift
 // Copyright © ShowRate. All rights reserved.
 
 import RealmSwift
 import UIKit
 
-/// Ячейка таблицы DetailTableViewController
-final class DetailTableViewCell: UITableViewCell {
+final class DetailCollectionViewCell: UICollectionViewCell {
     // MARK: - Static Properties
 
     static let identifier = "DetailCell"
@@ -18,10 +17,10 @@ final class DetailTableViewCell: UITableViewCell {
     private let baseView = UIView()
     private let imageService = ImageService()
 
-    // MARK: - UITableViewCell(DetailTableViewCell)
+    // MARK: - UICollectionViewCell(DetailCollectionViewCell)
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func setNeedsDisplay() {
+        super.setNeedsDisplay()
         setupView()
     }
 
@@ -48,7 +47,7 @@ final class DetailTableViewCell: UITableViewCell {
         }
     }
 
-    // MARK: - private methods
+    // MARK: - Private Methods
 
     private func setupView() {
         createTitleLabel()
@@ -104,13 +103,13 @@ final class DetailTableViewCell: UITableViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.accessibilityIdentifier = "titleLabel"
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
         baseView.addSubview(titleLabel)
     }
 
     private func createTitleLabelConstraint() {
-        titleLabel.topAnchor.constraint(equalTo: postImageView.topAnchor, constant: 380).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 10)
             .isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -10)
@@ -119,7 +118,7 @@ final class DetailTableViewCell: UITableViewCell {
 
     private func createDescriptionLabel() {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.numberOfLines = 12
+        descriptionLabel.numberOfLines = 0
         baseView.addSubview(descriptionLabel)
     }
 

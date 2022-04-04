@@ -32,7 +32,7 @@ final class MovieCoordinator: BaseCoordinator {
     // MARK: - Private Methods
 
     private func showMovieModule() {
-        guard let movieVC = assemblyModule?.createMainModule() as? MainTableViewController else { return }
+        guard let movieVC = assemblyModule?.createMainModule() as? MainViewController else { return }
 
         movieVC.showDetails = { [weak self] movieID in
             guard let self = self else { return }
